@@ -22,8 +22,9 @@ a log of every draft you have scored so you can watch the numbers move.
 
 Installers for Windows and macOS (Apple Silicon and Intel) are on the
 [Releases page](https://github.com/fullcolorbrain/grfp-scorer/releases/latest).
-They are unsigned: on macOS, right-click → Open (macOS 14) or allow it under System
-Settings → Privacy & Security (macOS 15+); on Windows, SmartScreen → More info → Run anyway.
+They are unsigned, so your computer warns once on first launch. **Mac users: see
+[issue #1](https://github.com/fullcolorbrain/grfp-scorer/issues/1)** for the two ways
+past the "Apple could not verify" dialog. Windows: SmartScreen → More info → Run anyway.
 
 On first launch the app shows the license and disclaimer, asks how statements should be
 read (below), and asks you to register the copy — name, email, institution — so the
