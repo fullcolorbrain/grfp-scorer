@@ -77,8 +77,8 @@ registrations are stored locally and never sent.
 ## Citing
 
 If you use GRFP Scorer in teaching or research, please cite it — see
-[CITATION.cff](CITATION.cff) (GitHub shows a "Cite this repository" button) or the
-Zenodo DOI on the Releases page.
+[CITATION.cff](CITATION.cff), or use the "Cite this repository" button at the top of the
+GitHub page.
 
 ## License
 
