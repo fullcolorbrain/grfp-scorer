@@ -1,0 +1,5 @@
+file,label,outcome,reader_P1,reader_P2,reader_P3,reader_P4,reader_P5,reader_P6,reader_P7,reader_P8,reader_P9,reader_P10
+PATH/TO/applicant_A.pdf,Applicant A,HM,2,2,2,1,1,2,1,2,0,1
+PATH/TO/applicant_B.pdf,Applicant B,awarded,2,2,2,2,1,2,2,1,1,2
+PATH/TO/applicant_C_2024.pdf,Applicant C 2024,HM,2,1,1,1,1,2,1,2,1,0
+PATH/TO/applicant_C_2025.pdf,Applicant C 2025,awarded,2,1,2,2,1,2,1,2,1,2

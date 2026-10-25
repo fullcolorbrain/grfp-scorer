@@ -1,0 +1,27 @@
+# build outputs — binaries are attached to GitHub Releases, not committed
+build/
+build-*/
+dist/
+dist-*/
+*.spec
+.build-venv*/
+installer/Output/
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# local secrets and scratch
+.env
+*.key
+registration_local.py
+/tmp/
+
+# editors / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

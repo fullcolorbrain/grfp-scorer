@@ -1,0 +1,17 @@
+{
+  "title": "GRFP Scorer: rubric-based formative feedback for NSF Graduate Research Fellowship statements",
+  "upload_type": "software",
+  "license": "Apache-2.0",
+  "creators": [
+    {
+      "name": "Costa, Vincent D.",
+      "affiliation": "Independent (developed with personal resources)"
+    }
+  ],
+  "description": "A desktop application and command-line tools that score a draft NSF Graduate Research Fellowship Program statement against a ten-principle writing rubric, cite the sentence each sub-score rests on, and propose the highest-value revisions. Supports the Claude API (user-supplied key), a local Ollama model, or an offline lexical mode. Scores describe rubric fit only and are not predictions of fellowship outcomes.",
+  "keywords": ["NSF GRFP", "fellowship writing", "graduate training", "formative feedback", "large language models"],
+  "access_right": "open",
+  "related_identifiers": [
+    {"identifier": "https://github.com/fullcolorbrain/grfp-scorer", "relation": "isSupplementTo", "scheme": "url"}
+  ]
+}

@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use GRFP Scorer in teaching, mentoring, or research, please cite it as below."
+title: "GRFP Scorer: rubric-based formative feedback for NSF Graduate Research Fellowship statements"
+type: software
+authors:
+  - family-names: Costa
+    given-names: Vincent D.
+    orcid: "https://orcid.org/0000-0000-0000-0000"   # replace with your ORCID iD
+version: 1.1.0
+date-released: 2026-11-01
+license: Apache-2.0
+repository-code: "https://github.com/fullcolorbrain/grfp-scorer"
+url: "https://fullcolorbrain.com/grfp-scorer"
+keywords:
+  - NSF GRFP
+  - fellowship writing
+  - graduate training
+  - formative feedback
+  - large language models
+abstract: >
+  A desktop application and command-line tools that score a draft NSF Graduate Research
+  Fellowship Program statement against a ten-principle writing rubric, cite the sentence
+  each sub-score rests on, and propose the highest-value revisions. Supports the Claude
+  API (user-supplied key), a local Ollama model, or an offline lexical mode.

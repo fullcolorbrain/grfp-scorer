@@ -1,0 +1,15 @@
+GRFP Scorer
+Copyright 2025-2026 Vincent D. Costa
+
+This product was developed independently by the author using personal
+resources. It is not a product of, and is not endorsed by, Emory University,
+the National Science Foundation, or Anthropic.
+
+"NSF" and "Graduate Research Fellowship Program" are names of a United States
+federal agency and its program. This software is not affiliated with, sponsored
+by, or endorsed by the National Science Foundation.
+
+The scoring rubric (rubric.md) and the calibration data (calibration/) are part
+of this Work and are licensed under the same Apache License, Version 2.0.
+
+See DISCLAIMER.md for the terms of use that accompany this software.

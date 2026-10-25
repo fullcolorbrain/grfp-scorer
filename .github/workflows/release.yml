@@ -1,0 +1,101 @@
+# Builds the Windows installer + portable exe, and the macOS Apple Silicon and Intel
+# .dmg files, then attaches all of them to a GitHub Release.
+#
+# Trigger: push a version tag, e.g.
+#     git tag v1.1.0 && git push origin v1.1.0
+# or run it by hand from the Actions tab (workflow_dispatch) to test the build.
+#
+# Nothing here is signed; see INSTALL.md § Signing. The macOS Intel runner label
+# (macos-15-intel) is GitHub's current x86_64 runner; if GitHub retires it, switch
+# to whatever Intel label they list, or build Intel locally with
+#     bash installer/build_mac_intel.sh   (works on Apple Silicon under Rosetta)
+
+name: Build and release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install Inno Setup
+        run: choco install innosetup --no-progress -y
+      - name: Build
+        run: powershell -ExecutionPolicy Bypass -File installer\build_windows.ps1
+      - uses: actions/upload-artifact@v5
+        with:
+          name: windows
+          path: |
+            dist/GRFP Scorer.exe
+            installer/Output/*.exe
+
+  macos-arm64:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Build
+        run: bash installer/build_mac.sh
+      - uses: actions/upload-artifact@v5
+        with:
+          name: macos-arm64
+          path: dist/*.dmg
+
+  macos-intel:
+    runs-on: macos-15-intel
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Build
+        run: bash installer/build_mac_intel.sh
+      - uses: actions/upload-artifact@v5
+        with:
+          name: macos-intel
+          path: dist-intel/*.dmg
+
+  release:
+    needs: [windows, macos-arm64, macos-intel]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/download-artifact@v6
+        with:
+          path: artifacts
+      - name: Rename for clarity
+        run: |
+          set -e
+          mkdir out
+          cp "artifacts/windows/dist/GRFP Scorer.exe"            "out/GRFP-Scorer-${GITHUB_REF_NAME}-windows-portable.exe"
+          cp artifacts/windows/installer/Output/*.exe              "out/GRFP-Scorer-${GITHUB_REF_NAME}-windows-setup.exe"
+          cp "artifacts/macos-arm64/GRFP Scorer.dmg"               "out/GRFP-Scorer-${GITHUB_REF_NAME}-macos-apple-silicon.dmg"
+          cp "artifacts/macos-intel/GRFP Scorer (Intel).dmg"       "out/GRFP-Scorer-${GITHUB_REF_NAME}-macos-intel.dmg"
+          ls -la out
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: out/*
+          generate_release_notes: true
+          body: |
+            **Before you download:** this software is provided as is, without warranty. Scores describe how closely a draft matches a writing rubric and are not predictions of NSF outcomes. See DISCLAIMER.md. You will need your own Anthropic API key for the Claude backend (docs/API_KEY_SETUP.md), or Ollama for a free local model.
+
+            | Platform | File |
+            |---|---|
+            | Windows (installer, recommended) | `…-windows-setup.exe` |
+            | Windows (portable, no install) | `…-windows-portable.exe` |
+            | macOS Apple Silicon (M1 and later) | `…-macos-apple-silicon.dmg` |
+            | macOS Intel | `…-macos-intel.dmg` |
+
+            Unsigned builds: on macOS, right-click → Open (macOS 14) or allow under System Settings → Privacy & Security (macOS 15+); on Windows, SmartScreen → More info → Run anyway.
