@@ -1,10 +1,11 @@
 # Calibration data
 
-`hand_scores_and_features.csv` — one row per statement (51 total), anonymised as S01–S51.
+`hand_scores_and_features.csv` — one row per calibration statement, anonymised with sequential IDs.
 Columns: corpus, official outcome where known (awarded / HM / not_listed / funded_or_HM /
 unknown), the ten reader-assigned sub-scores P1–P10, total, four-item score, and the
 feature counts computed by `score_offline.py` (prefixed `feat_`). No statement text or
-names are included.
+names are included, and the word count is rounded to the nearest 100 so that no row can be
+matched to an individual statement.
 
 Uses:
 - Recalibrate the offline thresholds if you add more hand-scored statements
