@@ -2,6 +2,10 @@
 
 **Rubric-based formative feedback for NSF Graduate Research Fellowship statements.**
 
+Project page: [fullcolorbrain.com/grfp-scorer](https://fullcolorbrain.com/grfp-scorer) ·
+Downloads: [Releases](https://github.com/fullcolorbrain/grfp-scorer/releases/latest) ·
+Questions and problems: [Issues](https://github.com/fullcolorbrain/grfp-scorer/issues)
+
 Drop a draft of your GRFP personal statement onto the app. About a minute later you get a
 score on each of ten principles of a strong statement, the sentence in your draft that
 each score rests on, the three revisions most likely to help, a set of mechanical checks
