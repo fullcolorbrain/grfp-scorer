@@ -33,7 +33,7 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-APP_VERSION = "1.1.0"          # keep in sync with CITATION.cff and the installer scripts
+APP_VERSION = "1.1.1"          # keep in sync with CITATION.cff and the installer scripts
 LICENSE_VERSION = "2026-10"    # bump when DISCLAIMER.md changes; users re-accept on next launch
 ENDPOINT = "https://script.google.com/macros/s/AKfycbwDVrO02TkqP_GWbq1kELeYfCUdxPQpSFC0Sifoy3tzY6H7Z9hkCN6wsv13v31BW1MP1Q/exec"
 APP_TOKEN = "grfp-scorer-public"

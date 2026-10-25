@@ -6,7 +6,7 @@ authors:
   - family-names: Costa
     given-names: Vincent D.
     orcid: "https://orcid.org/0000-0000-0000-0000"   # replace with your ORCID iD
-version: 1.1.0
+version: 1.1.1
 date-released: 2026-11-01
 license: Apache-2.0
 repository-code: "https://github.com/fullcolorbrain/grfp-scorer"
